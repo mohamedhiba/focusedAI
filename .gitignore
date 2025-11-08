@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Training artifacts & large data
+runs/
+data/
+data_*/*
+datasets/
+# Allow committing best.pt directly; ignore all other .pt files
+!best.pt
+*.pt
+*.onnx
+
+# IDE
+.vscode/
+.idea/
