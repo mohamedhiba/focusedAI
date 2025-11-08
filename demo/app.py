@@ -217,8 +217,13 @@ def main():
     with gr.Blocks() as demo:
         gr.Markdown("# focusedAI — Attention State Classifier")
         gr.Markdown("Center/square preproc · optional Haar crop/ensemble · argmax/thresholds · temp+bias · EMA+hysteresis")
-        cam = gr.Image(sources=["webcam"], streaming=True, label="Webcam",
-                       type="numpy", webcam_options=gr.WebcamOptions(mirror=True))
+        cam = gr.Image(
+            sources=["webcam"],
+            streaming=True,
+            label="Webcam",
+            type="numpy",
+            mirror_webcam=True,   # works on gradio 4.0.0 and later
+        )
         out = gr.Label(num_top_classes=3)
         cam.stream(fn, inputs=cam, outputs=out)
     demo.launch()
