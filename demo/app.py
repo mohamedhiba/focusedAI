@@ -7,6 +7,7 @@
 # - neutral tie-break + display gap (avoid equal % in UI)
 
 import argparse
+import os
 import numpy as np
 import torch, cv2, gradio as gr
 from PIL import Image, ImageOps
@@ -190,6 +191,9 @@ def make_pipeline(model, device, labels, *,
 def main():
     args = parse_args()
     device = device_auto() if args.device=="auto" else torch.device(args.device)
+    ckpt_default = os.getenv("CKPT_PATH", "weights/best.pt")
+    if not args.ckpt:
+        args.ckpt = ckpt_default
     model = load_model(args.ckpt, device=device)
 
     labels = ["distracted","focused","neutral"]
