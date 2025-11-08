@@ -13,7 +13,6 @@ data/
 data_*/*
 datasets/
 # Allow committing best.pt directly; ignore all other .pt files
-!best.pt
 *.pt
 *.onnx
 
