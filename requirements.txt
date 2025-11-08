@@ -1,6 +1,6 @@
 torch>=2.2
 torchvision>=0.17
-gradio>=4.0
+gradio>=4.44.1
 opencv-python
 numpy
 scikit-learn
